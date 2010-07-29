@@ -73,8 +73,3 @@ Element.addMethods({
     return elem;
   }
 });
-
-
-// TESTS
-var clickHandler = function(ev, test){ev.stop(); console.log(this); console.log(test);};
-$('footer').dispatch('click', clickHandler.bindAsEventListener(this, 'hello'));
