@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <title>Dispatch</title>
+
+  <script src=" http://ajax.googleapis.com/ajax/libs/prototype/1.6/prototype.js"></script>
+</head>
+<body>
+
+<footer id="footer">
+  <p>The Footer</p>
+</footer>
+
+<script src="../lib/dispatch.js"></script>
+<script>
+
+  function clickHandler ( ev, test ) {
+    ev.stop();
+    console.log(this, test);
+  }
+
+  $('footer').dispatch( 'click', clickHandler.bindAsEventListener( this, 'hello' ) );
+  
+</script>
+
+</body>
+</html>
+
