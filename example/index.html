@@ -9,6 +9,16 @@
 </head>
 <body>
 
+<div id="nav">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">gf3!</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">About</a></li>
+    <li><a class="external" href="http://github.com/diago/Dispatch">Dispatch</a></li>
+  </ul>
+</div>
+
 <footer id="footer">
   <p>The Footer</p>
 </footer>
@@ -18,10 +28,20 @@
 
   function clickHandler ( ev, test ) {
     ev.stop();
-    console.log(this, test);
+    console.log(this, test, ev.findElement().innerHTML);
   }
 
+  // using a selector for accuracy
+  $('nav').dispatch( 'click', 'li a:not(.external)', clickHandler.bindAsEventListener( this, 'hello' ) );
+
+  // to kill, pass the same selector 
+  // $('nav').kill( 'click', 'li a:not(.external)' ); 
+
+  // not so accurate
   $('footer').dispatch( 'click', clickHandler.bindAsEventListener( this, 'hello' ) );
+
+  // to kill
+  // $('footer').kill( 'click' );
   
 </script>
 
